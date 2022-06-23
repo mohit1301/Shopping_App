@@ -55,19 +55,8 @@ exports.loginUser = async(req, res)=>{
 }
 
 exports.logoutUser = async(req, res)=>{
-    // try {
-    //   req.session.destroy(function(err){
-    //     if(err){
-    //         console.log(err);
-    //         res.send("Error")
-    //     }else{
-    //         res.render('mainPage', { logout : "Logged Out Successfully...!"})
-    //     }
-    // })
-    
+   
     res.clearCookie("accessToken")
-    // await req.user.save()
-    // res.cookie("accessToken", "", { maxAge: "1" })
     req.flash('message', 'Logged Out Successfully...!')
     res.redirect('/')
 }
