@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Products Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styleProducts.css">
+</head>
+<body>
+
+
+<div class="card col-md-8 offset-md-5" style="max-width: 18rem">
+    <div class="card-body">
+
+        <h3 class="card-title">Hi <%= user.name %></h3>
+    </div>
+</div>
+
+
+<% if(message.length > 0){ %>
+    <div class="alter alert-success text-center">
+        <%= message %>
+    </div> 
+<% } %>
+
+
+<div class="container">
+    <br><table class="table table-bordered table-border text-center shadow" bgcolor="white">
+        <tr>
+            <th>Product Name</th>
+            <th>Product quantity</th>
+            <th>Product price</th>
+        </tr>
+        <% Products.forEach(function(Product){ %>
+            <tr>
+                <td><%= Product.productName %></td>
+                <td><%= Product.productQuantity%></td>
+                <td><%= Product.productPrice %></td>
+                <td><a href="/cart/delete/<%= Product.productId%>" class="btn btn-danger btn-sm">Remove from cart</a></td>
+            </tr>
+            <% }) %>
+            <td>Amount: <%=amount%></t>
+    </table>
+    <a href="/product/find" class="btn btn-success btn-sm">Products Page</a>
+</div>
+</body>
+</head>

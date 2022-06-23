@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Products Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styleProducts.css">
+</head>
+<body>
+        <div class="card col-md-8 offset-md-5" style="max-width: 18rem">
+            <div class="card-body">
+                <h3 class="card-title">Hi <%= user.name %></h3>
+            </div>
+          </div>
+    <% if(message.length > 0){ %>
+        <div class="alter alert-success text-center">
+            <%= message %>
+        </div> 
+    <% } %>
+    <!-- <div class="container">
+        <table class="table table-bordered table-border text-center shadow">
+            <tr>
+                <th>Product id</th>
+                <th>Product title</th>
+                <th>Product desc</th>
+                <th>Product img</th>
+                <th>Product price</th>
+                <th>Product quantity</th>
+            </tr>
+            <form action="/cart/update/<%= user._id %>" method="post">
+            <% Products.forEach(function(Product){ %>
+                <tr>
+                    <td><%= Product._id %></td>
+                    <td><%= Product.title %></td>
+                    <td><%= Product.desc %></td>
+                    <td><%= Product.img %></td>
+                    <td><%= Product.price %></td>
+                    <td><input type="text" name="quantity" placeholder="quantity"></td>
+                        <input type="hidden" name="userId" value="<%= user._id %>">
+                        <input type="hidden" name="productId" value="<%= Product._id %>">
+                        <input type="hidden" name="productPrice" value="<%= Product.price %>">
+                        <td><button type="submit" class="btn btn-primary">Add to cart</button></td>
+                    </form>
+                </tr>
+                <% }) %>
+        </table>
+    </div> -->
+    
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-9">
+        <div class="row">
+            <% for(let product of Products) {%>
+                <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">                        
+                        Name: <%= product.productName%>
+                    </h4>
+                    <p class="card-text">Description: <%= product.productDesc%></p>
+                    <h5>Price: Rs <%= product.productPrice%></h5>
+                </div>
+                <div class="card-footer">
+                    <form action="/cart/addtocart" method="POST">
+                        <input type="hidden" name="userId" value="<%=user._id%>">
+                        <input type="hidden" name="productId" value="<%=product.id%>">
+                        <input type="hidden" name="productName" value="<%=product.productName%>">
+                        <input type="hidden" name="productPrice" value="<%=product.productPrice%>">
+                        <input type="text" name="productQuantity" placeholder="quantity"><br>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Add to Cart</button>
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="links">
+        <a href="/user/dashboard" class="btn btn-success btn-sm">DashBoard</a>
+        <a href="/cart/find/<%=user._id%>" class="btn btn-success btn-sm">View Cart</a>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,20 @@
+.links {
+    display: inline;
+    align-items: right;
+    margin-left: 4.5em;
+    /* margin-right: 4.5em; */
+    justify-content: space-around;
+    /* float: right; */
+}
+
+.links a {
+    flex: 1;
+    text-align: center;
+}
+
+body {
+    /* font-family: 'Open Sans', sans-serif; */
+    background-image: url('/assets/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

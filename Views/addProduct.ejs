@@ -1,0 +1,45 @@
+
+<%- include('header') -%>
+
+<% if(locals.message){ %>
+    <div class="alter alert-success text-center">
+        <%= message %>
+    </div> 
+<% } %>
+
+<style>
+    #button1 , #button2 {
+display:inline-block;
+
+}
+
+</style>
+
+<div class="text-center center-div" id="login">
+    <div class="container w-50 border py-5">
+        <div class="title pb-5">
+            <h2 class="font-weight-bold">Add a New Product</h2>
+        </div>
+        <form action="/product/create" method="POST" class="pt-3">
+            <div class="form-group">
+                Product Name: 
+                <input type="text" class="form-control" placeholder="Product Name" name="productName">
+            </div>
+            <div class="form-group">
+                Product Description: 
+                <input type="text" class="form-control" placeholder="Product Description" name="productDesc">
+            </div>
+            <div class="form-group">
+                Product Price: 
+                <input type="text" class="form-control" placeholder="Product Price" name="productPrice">
+            </div>
+            <button type="submit" class="btn btn-success rounded-pill" id="button1">Add Product</button>
+            <a href="/user/dashboard" class="btn btn-success rounded-pill" id="button2">DashBoard</a>
+
+        </form>
+        
+    </div>
+</div>
+
+</body>
+</html>
